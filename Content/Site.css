@@ -1,0 +1,191 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+div.pagination-container-centerer {
+    text-align: center;
+}
+
+
+div.pagination-container {
+    margin-left: auto;
+    margin-right: auto;
+    display: inline-block;
+}
+
+div.pagenumber {
+    text-align: center;
+}
+
+div.video {
+    width: 650px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px; 
+    margin-bottom: 50px; 
+}
+
+div.codelink {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: bold;
+}
+
+p.codedesc {
+    max-width: 500px; 
+    min-width: 200px;
+    margin-left: auto; 
+    margin-right: auto;
+}
+
+div.feature {
+    border-style: solid;
+    border-width: thick;
+    border-color: ActiveBorder;
+}
+
+div.feature-holder {
+    height: 350px;
+    width: 300px;
+    margin: 10px;
+    padding: 20px;
+}
+
+/* Store */
+
+div.filter-control-panel {
+    margin: auto;
+    margin-bottom: 30px;
+    margin-top: 30px;
+    color: white;
+    background-color: #706b6b;
+    border-radius: 10px;
+    border-style: ridge;
+    border-width: 5px;
+    padding: 10px;
+}
+
+div.filter-panel-section {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 5px;
+    color: white;
+}
+
+input.store-search {
+    /*float:right;*/
+    /*clear:both;*/
+    max-width: none;
+}
+
+div.store-display {
+    height: 440px;
+    width: 480px;
+    border-style: solid;
+    border-width: medium;
+    border-color: ActiveBorder;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+    padding: 0px;
+}
+
+div.store-display div.price { 
+    width: 200px;
+    height: 100px;
+    margin: auto;
+    text-align: center;
+    padding-top: 30px;
+}
+
+div.price {
+    font-size: 30px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+div.category {
+    font-weight: bold;
+}
+
+div.product-info {
+    padding: 10px;
+}
+
+div.description {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+div.view-details, div.return-to-store {
+    font-size: 20px;
+    font-family: 'Times New Roman', Times, serif;
+    cursor: pointer;
+}
+
+div.item-name {
+    font-size: 26px;
+}
+
+h1.store-banner {
+    font-size: 36px;
+    font-family: Gabriola, Andalus;
+    text-align: center;
+    margin-top: 30px;
+}
+
+div.shopping-cart-nav {
+    margin-left:auto;
+    margin-right:auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 400px;
+    font-size: 18px;
+}
+
+/* For File Browsing */
+
+.btn-file {
+    position: relative;
+    overflow: hidden;
+}
+.btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 100px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    outline: none;
+    background: white;
+    cursor: inherit;
+    display: block;
+}
+
+input[readonly] {
+  background-color: white !important;
+  cursor: text !important;
+}
