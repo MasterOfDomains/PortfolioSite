@@ -1,0 +1,52 @@
+﻿@model PortfolioSite.ViewModels.DetailsAndSizesViewModel
+
+@using PortfolioSite.Models
+@using PortfolioSite.Helpers
+
+    @{
+        ViewBag.Title = "Item Details";
+        var imagePath = new ImagePath(ImagePath.ImageCategory.Clothing);
+    }
+
+<div class="container" style="max-width: 500px; min-width: 400px;">
+    <h2>Details</h2>
+
+    <div>
+        <h4>@Model.Item.Name</h4>
+
+        <div>
+            <img src="~/@imagePath.GetPath(Model.Item, true)" alt="@Model.Item.Name" />
+        ></div>
+        <div class="item-details">
+            <div class="category">
+                Category: @Model.Item.Category.CategoryName.Name
+            </div>
+            <div class="price">
+                Price: $@Model.Item.Price
+            </div>
+            <div class="description">
+                @Model.Item.Blurb
+                @Html.Partial("_LengthyDescription")
+                Available in sizes @Model.SizeString
+            </div>
+        </div>
+
+
+        @using (Html.BeginForm(new { controller = "ShoppingCart", action = "AddToCart", id = Model.Item.ItemID }))
+        {
+            <div>
+                <div class="size-select-form">
+                    Select Size:
+                    @Html.DropDownList("InventoryId", null, htmlAttributes: new { @class = "form-control" })
+                    <div style="margin-top: 50px; margin-bottom:20px;">
+                        <button type="submit" class="btn btn-default">Add To Cart</button>
+                    </div>
+                    <div class="return-to-store">
+                        @Html.ActionLink("<< Back to Store", "Index", "Store", new { @class = "" })
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+
+</div>

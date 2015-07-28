@@ -1,0 +1,59 @@
+﻿@model IEnumerable<PortfolioSite.Models.Category>
+@using PortfolioSite.Helpers;
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            ID
+        </th>
+        <th>
+            Gender Specific?
+        </th>
+        <th>
+            Male (Checked)</br>
+            Female (Unchecked)
+        </th>
+        <th>
+            Age Group
+        </th>
+        <th>
+            Category
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            <b>@Html.DisplayFor(modelItem => item.CategoryID)</b>
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HasGender)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsMale)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AgeGroup.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CategoryName.Name)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.CategoryID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.CategoryID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.CategoryID })
+        </td>
+    </tr>
+}
+
+</table>

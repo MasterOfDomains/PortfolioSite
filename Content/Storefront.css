@@ -1,0 +1,80 @@
+﻿    div.filter-control-panel {
+        border-style: solid;
+        border-color: #ff0000;
+        border-width: 5px;
+        margin: auto;
+    }
+
+    div.filter-panel-section {
+       border-style: solid;
+       border-color: #00ffff;
+       border-width: 5px;
+        margin: auto;
+    }
+
+    div.store-floor {
+        border-style: solid;
+        border-color: #00ff21;
+        border-width: 5px;
+        margin: auto;
+    }
+
+    .store-display, .pic-and-price, .product-info {
+        height: 400px;
+    }
+
+    div.pic-and-price {
+        border-style: solid;
+        border-color: #ff6a00;
+        border-width: 1px;
+        margin: 1px;
+    }
+
+    div.product-info {
+        border-style: solid;
+        border-color: #ff6a00;
+        border-width: 1px;
+        margin: 1px;
+    }
+
+    div.store-display {
+        width: 500px;
+        margin: 10px;
+        padding-top: 20px;
+        padding-right: 20px;
+        padding-bottom: 20px;
+        border-style: solid;
+        border-color: #808080;
+        border-width: 5px;
+    }
+
+    div.store-picture {
+    }
+
+    div.price {
+        margin: auto;
+        font-size: 30px;
+        font-family: 'Times New Roman', Times, serif;
+    }
+
+    div.product-info {
+    }
+
+    div.item-name {
+        font-size: 26px;
+    }
+
+    div.description {
+        margin-top: 20px;
+    }
+
+    div.view-details {
+        font-size: 20px;
+        font-family: 'Times New Roman', Times, serif;
+    }
+
+    h2.store-banner {
+        font-size: 36px;
+        font-family: Constantia;
+        text-align: center;
+    }
