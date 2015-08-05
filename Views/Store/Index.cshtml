@@ -17,7 +17,6 @@
         searchReminder = "Search Results For";
     }
     bool? isMale = ViewBag.IsMaleGet;
-    //bool isFemale = ViewBag.IsFemaleGet;
 
     string noMatches = ViewBag.NoMatches;
 
@@ -40,9 +39,9 @@
 
 @using (Html.BeginForm())
 {
-    <div class="filter-control-panel">
-        <div style="padding-left: 5px; padding-top: 2px; text-align: center;">
-            <span style="font-size: large;">Choose any combination of the following options to narrow your search.</span>
+    <div class="control-panel">
+        <div class="control-panel-caption">
+            Choose any combination of the following options to narrow your search.
         </div>
         <div class="row">
             <div class="col-sm-3">
@@ -115,18 +114,20 @@
             </div>
         </div>
         <div class="row" style="padding-bottom: inherit">
-                <div class="col-md-8" style="align-content:flex-end;">
-                    @Html.TextBox("SearchString", null, new { @class = "form-control store-search" })
-                </div>
-                <div class="col-md-2">
-                    <input type="submit" value="Refine Search" class="btn btn-default" />
-                </div>
-                <div class="col-md-2">
-                    <a href="~/Store/" style="font-size: larger; color: #00ffff;">Clear Search</a>
-                </div>
+            <div class="col-md-8" style="align-content:flex-end;">
+                @Html.TextBox("SearchString", null, new { @class = "form-control store-search" })
+            </div>
+            <div class="col-md-2">
+                <input type="submit" value="Refine Search" class="btn btn-default" />
+            </div>
+            <div class="col-md-2">
+                <a href="~/Store/" style="font-size: larger; color: #00ffff;">Clear Search</a>
+            </div>
         </div>
         <div class="row">
-            <div style="text-align:center; font-size: large">@searchReminder <u>@searchString</u></div>
+            <div class="col-md-12">
+                <div style="text-align:center; font-size: large">@searchReminder <u>@searchString</u></div>
+            </div>
         </div>
     </div>
 }
@@ -134,7 +135,7 @@
     <div class="row">
 @foreach (var item in Model)
 {
-    var imagePath = new ImagePath(ImagePath.ImageCategory.Clothing);
+    var displayImage = new DisplayImage(DisplayImage.ImageCategory.Clothing);
     
         <div class="col-md-6">
             <div class="store-display">
@@ -144,7 +145,7 @@
                         <td>
                             <div class="store-picture"> <!-- No Style Defined -->
                                 <a href="@Url.Action("Details", "Store", new { id = item.ItemID })" alt="View Details">
-                                    <img src="~/@imagePath.GetPath(item, true)"
+                                    <img src="~/@displayImage.GetPath(item, true)"
                                          height="250" width="250"
                                          alt="@Html.DisplayFor(modelItem => item.Name)" />
                                 </a>

@@ -1,10 +1,12 @@
-﻿using System.Linq;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace PortfolioSite.Models
 {
     public class InventoryManager
     {
-        PortfolioDataEntities db = new PortfolioDataEntities();
+        ClothingDataEntities db = new ClothingDataEntities();
 
         public int CheckInventory(int inventoryId)
         {

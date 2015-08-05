@@ -13,7 +13,5 @@
         public int QuantityInStock { get; set; }
         public decimal Total { get; set; }
         public bool InventoryFlag { get; set; }
-        // For testing only
-        //public string CartId { get; set; }
     }
 }

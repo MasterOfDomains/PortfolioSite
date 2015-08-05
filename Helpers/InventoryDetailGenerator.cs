@@ -7,14 +7,15 @@ namespace PortfolioSite.Models
     {
         public List<InventoryDetail> GetInventoryDetails(Inventory inventoryItem)
         {
-            var stockEnum = inventoryItem.Stocks.Where(s => s.InventoryID == inventoryItem.InventoryID);
+            var stockEnum = inventoryItem.Stocks.Where(s => s.InventoryID == inventoryItem.InventoryID)
+                .OrderBy(s => s.Size.DisplayOrder);
             List<InventoryDetail> inventoryDetails = GetInventoryDetailsHelper(stockEnum);
             return inventoryDetails;
         }
 
         public List<InventoryDetail> GetInventoryDetails(Item saleItem)
         {
-            var stockEnum = saleItem.Stocks.AsEnumerable();
+            var stockEnum = saleItem.Stocks.AsEnumerable().OrderBy(s => s.Size.DisplayOrder);
             List<InventoryDetail> InventoryDetails = GetInventoryDetailsHelper(stockEnum);
             return InventoryDetails;
         }

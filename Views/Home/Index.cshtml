@@ -10,6 +10,8 @@
     <p><a href="~/Home/About/" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
 </div>
 
+@Html.ActionLink("Administration", "RoleIndex", "Account")
+
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-4">
@@ -41,7 +43,18 @@
             </div>
         </div>
         <div class="col-md-4">
-            <div class="feature-holder"></div>
+            <div class=" feature feature-holder">
+                <h3>Inventory Management</h3>
+                <p>Add sizes and update stock for each in the database. See the changes reflected in the store!</p>
+                <h4>Using:</h4>
+                <ul>
+                    <li>JQuery</li>
+                    <li>LINQ</li>
+                    <li>Entity Framework</li>
+                    <li>Authorization</li>
+                </ul>
+                <a href="/EditItems" class="btn btn-primary btn-sm">"Admins" Only!</a>
+            </div>
         </div>
     </div>
 </div>

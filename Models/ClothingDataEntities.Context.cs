@@ -13,16 +13,16 @@ namespace PortfolioSite.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class PortfolioDataEntities : DbContext
+    public partial class ClothingDataEntities : DbContext
     {
-        public PortfolioDataEntities()
-            : base("name=PortfolioDataEntities")
+        public ClothingDataEntities()
+            : base("name=ClothingDataEntities")
         {
         }
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            throw new UnintentionalCodeFirstException();
+            throw new UnintentionalCodeFirstException("jrogers27401");
         }
     
         public virtual DbSet<AgeGroup> AgeGroups { get; set; }
@@ -34,7 +34,5 @@ namespace PortfolioSite.Models
         public virtual DbSet<Size> Sizes { get; set; }
         public virtual DbSet<SizeType> SizeTypes { get; set; }
         public virtual DbSet<Stock> Stocks { get; set; }
-
-        public System.Data.Entity.DbSet<PortfolioSite.ViewModels.ShoppingCartViewModel> ShoppingCartViewModels { get; set; }
     }
 }

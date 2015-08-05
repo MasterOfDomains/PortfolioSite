@@ -1,4 +1,5 @@
 ﻿using PortfolioSite.DataContexts;
+using PortfolioSite.Helpers;
 using PortfolioSite.Models;
 using PortfolioSite.ViewModels;
 using System;
@@ -11,7 +12,7 @@ namespace PortfolioSite.Controllers
     [AllowAnonymous]
     public class ShoppingCartController : Controller
     {
-        PortfolioDataEntities mainDb = new PortfolioDataEntities();
+        ClothingDataEntities mainDb = new ClothingDataEntities();
         WebStoreDataEntities webStoreDb = new WebStoreDataEntities();
 
         public ActionResult ClearCart()
@@ -32,6 +33,8 @@ namespace PortfolioSite.Controllers
             decimal cartTotal = 0;
             //bool insufficientInventory = false;
             var alertMessages = new List<string>();
+            var displayImage = new DisplayImage(DisplayImage.ImageCategory.Clothing);
+
             foreach (Cart cart in carts)
             {
                 Item item = mainDb.Items.Single(i => i.ItemID == cart.ItemId);
@@ -56,7 +59,7 @@ namespace PortfolioSite.Controllers
                         QuantityInStock = inventory.QuantityInStock,
                         Name = item.Name,
                         Size = inventoryDetailGenerator.GetInventoryDetailString(inventoryDetails, false),
-                        Picture = item.Picture,
+                        Picture = displayImage.GetPath(item, true),
                         Total = cartDetailTotal,
                         InventoryFlag = insufficientInventoryItem
                     }
@@ -148,8 +151,7 @@ namespace PortfolioSite.Controllers
             {
                 results.Success = true;
                 cart.ChangeCartQty(id, qty);
-                //int itemCount = cart.ChangeCartQty(id, qty);
-                //results.Message = Server.HtmlEncode(itemName) +
+
                 results.Message = itemName +
                     " has been changed to " + qty + " unit";
                 if (qty == 1)

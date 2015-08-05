@@ -21,6 +21,7 @@ namespace PortfolioSite.Models
     
         public int AgeGroupID { get; set; }
         public string Name { get; set; }
+        public Nullable<int> DisplayOrder { get; set; }
     
         public virtual ICollection<Category> Categories { get; set; }
     }

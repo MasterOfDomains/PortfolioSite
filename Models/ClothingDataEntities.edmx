@@ -4,13 +4,14 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="PortfolioDataModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="ClothingDataModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="AgeGroups">
           <Key>
             <PropertyRef Name="AgeGroupID" />
           </Key>
           <Property Name="AgeGroupID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="DisplayOrder" Type="int" />
         </EntityType>
         <EntityType Name="Categories">
           <Key>
@@ -62,6 +63,7 @@
           <Property Name="SizeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Value" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="SizeTypeID" Type="int" Nullable="false" />
+          <Property Name="DisplayOrder" Type="int" />
         </EntityType>
         <EntityType Name="SizeTypes">
           <Key>
@@ -69,6 +71,7 @@
           </Key>
           <Property Name="SizeTypeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="DisplayOrder" Type="int" />
         </EntityType>
         <EntityType Name="Stock">
           <Key>
@@ -203,7 +206,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="PortfolioDataModelStoreContainer">
+        <EntityContainer Name="ClothingDataModelStoreContainer">
           <EntitySet Name="AgeGroups" EntityType="Self.AgeGroups" Schema="clothing" store:Type="Tables" />
           <EntitySet Name="Categories" EntityType="Self.Categories" Schema="clothing" store:Type="Tables" />
           <EntitySet Name="CategoryNames" EntityType="Self.CategoryNames" Schema="clothing" store:Type="Tables" />
@@ -254,13 +257,14 @@
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="PortfolioDataModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="ClothingDataModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="AgeGroup">
           <Key>
             <PropertyRef Name="AgeGroupID" />
           </Key>
           <Property Name="AgeGroupID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DisplayOrder" Type="Int32" />
           <NavigationProperty Name="Categories" Relationship="Self.FK_clothing_Category_clothing_AgeGroups_AgeGroupID" FromRole="AgeGroups" ToRole="Categories" />
         </EntityType>
         <EntityType Name="Category">
@@ -323,6 +327,7 @@
           <Property Name="SizeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Value" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="SizeTypeID" Type="Int32" Nullable="false" />
+          <Property Name="DisplayOrder" Type="Int32" />
           <NavigationProperty Name="SizeType" Relationship="Self.FK_clothing_Sizes_clothing_SizeTypes_SizeTypeID" FromRole="Sizes" ToRole="SizeTypes" />
           <NavigationProperty Name="Stocks" Relationship="Self.FK_clothing_Stock_clothing_Sizes_SizeID" FromRole="Sizes" ToRole="Stock" />
         </EntityType>
@@ -332,6 +337,7 @@
           </Key>
           <Property Name="SizeTypeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DisplayOrder" Type="Int32" />
           <NavigationProperty Name="CategorySizeTypes" Relationship="Self.FK_clothing_CategorySizeTypes_clothing_SizeTypes_SizeTypeID" FromRole="SizeTypes" ToRole="CategorySizeTypes" />
           <NavigationProperty Name="Sizes" Relationship="Self.FK_clothing_Sizes_clothing_SizeTypes_SizeTypeID" FromRole="SizeTypes" ToRole="Sizes" />
         </EntityType>
@@ -471,7 +477,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="PortfolioDataEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="ClothingDataEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="AgeGroups" EntityType="Self.AgeGroup" />
           <EntitySet Name="Categories" EntityType="Self.Category" />
           <EntitySet Name="CategoryNames" EntityType="Self.CategoryName" />
@@ -523,17 +529,18 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="PortfolioDataModelStoreContainer" CdmEntityContainer="PortfolioDataEntities">
+        <EntityContainerMapping StorageEntityContainer="ClothingDataModelStoreContainer" CdmEntityContainer="ClothingDataEntities">
           <EntitySetMapping Name="AgeGroups">
-            <EntityTypeMapping TypeName="PortfolioDataModel.AgeGroup">
+            <EntityTypeMapping TypeName="ClothingDataModel.AgeGroup">
               <MappingFragment StoreEntitySet="AgeGroups">
                 <ScalarProperty Name="AgeGroupID" ColumnName="AgeGroupID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Categories">
-            <EntityTypeMapping TypeName="PortfolioDataModel.Category">
+            <EntityTypeMapping TypeName="ClothingDataModel.Category">
               <MappingFragment StoreEntitySet="Categories">
                 <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
                 <ScalarProperty Name="HasGender" ColumnName="HasGender" />
@@ -544,7 +551,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="CategoryNames">
-            <EntityTypeMapping TypeName="PortfolioDataModel.CategoryName">
+            <EntityTypeMapping TypeName="ClothingDataModel.CategoryName">
               <MappingFragment StoreEntitySet="CategoryNames">
                 <ScalarProperty Name="CategoryNameID" ColumnName="CategoryNameID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -552,7 +559,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="CategorySizeTypes">
-            <EntityTypeMapping TypeName="PortfolioDataModel.CategorySizeType">
+            <EntityTypeMapping TypeName="ClothingDataModel.CategorySizeType">
               <MappingFragment StoreEntitySet="CategorySizeTypes">
                 <ScalarProperty Name="CategorySizeTypeID" ColumnName="CategorySizeTypeID" />
                 <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
@@ -561,7 +568,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Inventories">
-            <EntityTypeMapping TypeName="PortfolioDataModel.Inventory">
+            <EntityTypeMapping TypeName="ClothingDataModel.Inventory">
               <MappingFragment StoreEntitySet="Inventory">
                 <ScalarProperty Name="InventoryID" ColumnName="InventoryID" />
                 <ScalarProperty Name="QuantityInStock" ColumnName="QuantityInStock" />
@@ -569,7 +576,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Items">
-            <EntityTypeMapping TypeName="PortfolioDataModel.Item">
+            <EntityTypeMapping TypeName="ClothingDataModel.Item">
               <MappingFragment StoreEntitySet="Items">
                 <ScalarProperty Name="ItemID" ColumnName="ItemID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -581,24 +588,26 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Sizes">
-            <EntityTypeMapping TypeName="PortfolioDataModel.Size">
+            <EntityTypeMapping TypeName="ClothingDataModel.Size">
               <MappingFragment StoreEntitySet="Sizes">
                 <ScalarProperty Name="SizeID" ColumnName="SizeID" />
                 <ScalarProperty Name="Value" ColumnName="Value" />
                 <ScalarProperty Name="SizeTypeID" ColumnName="SizeTypeID" />
+                <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="SizeTypes">
-            <EntityTypeMapping TypeName="PortfolioDataModel.SizeType">
+            <EntityTypeMapping TypeName="ClothingDataModel.SizeType">
               <MappingFragment StoreEntitySet="SizeTypes">
                 <ScalarProperty Name="SizeTypeID" ColumnName="SizeTypeID" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="DisplayOrder" ColumnName="DisplayOrder" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Stocks">
-            <EntityTypeMapping TypeName="PortfolioDataModel.Stock">
+            <EntityTypeMapping TypeName="ClothingDataModel.Stock">
               <MappingFragment StoreEntitySet="Stock">
                 <ScalarProperty Name="StockID" ColumnName="StockID" />
                 <ScalarProperty Name="ItemID" ColumnName="ItemID" />

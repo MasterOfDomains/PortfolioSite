@@ -14,7 +14,7 @@ namespace PortfolioSite.Controllers
 {
     public class StoreController : Controller
     {
-        private PortfolioDataEntities db = new PortfolioDataEntities();
+        private ClothingDataEntities db = new ClothingDataEntities();
 
         public ViewResult Index(int? page, string sortOrderGet, string searchStringGet,
             bool? isMaleGet, bool? isFemaleGet, int? ageGroupIdGet, int? categoryNameIdGet)
@@ -122,10 +122,10 @@ namespace PortfolioSite.Controllers
             }
 
             var StockEnum = item.Stocks.AsEnumerable();
+
             InventoryDetailGenerator InventoryGenerator = new InventoryDetailGenerator();
             List<InventoryDetail> inventoryDetails = InventoryGenerator.GetInventoryDetails(item);
             List<SelectListItem> sizeSelections = new List<SelectListItem>();
-            List<SelectList> sizeLists = new List<SelectList>();
 
             foreach (InventoryDetail detail in inventoryDetails)
             {

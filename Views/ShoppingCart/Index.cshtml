@@ -1,15 +1,12 @@
 ﻿@model PortfolioSite.ViewModels.ShoppingCartViewModel
 @using PortfolioSite.Models
 @using PortfolioSite.ViewModels
+@using PortfolioSite.Helpers
 
 @{
     ViewBag.Title = "View Shopping Cart";
 
-    string itemItems = "items";
-    if (Model.NumItems == 1)
-    {
-        itemItems = "item";        
-    }
+    var displayImage = new DisplayImage(DisplayImage.ImageCategory.Clothing);
 
     int initCartThumbnailHeight = 50;
     int expandedCartThumbnailHeight = 200;
@@ -145,9 +142,10 @@
 
 @foreach (CartDetail detail in Model.Details)
 {
+    
     <tr id="row-@detail.RecordId">
         <td>
-            <img src="~/Content/Img/@detail.Picture" class="cart-thumbnail" height="@initCartThumbnailHeight" alt="@detail.Name" />
+            <img src="~/@detail.Picture" class="cart-thumbnail" height="@initCartThumbnailHeight" alt="@detail.Name" />
         </td>
         <td>
             @Html.ActionLink(@detail.Name, "Details", "Store", new { id = detail.ItemId }, null)

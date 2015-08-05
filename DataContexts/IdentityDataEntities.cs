@@ -8,6 +8,7 @@ namespace PortfolioSite.DataContexts
         public IdentityDataEntities()
             : base("DefaultConnection", throwIfV1Schema: false)
         {
+            this.Configuration.LazyLoadingEnabled = true;
         }
 
         public static IdentityDataEntities Create()

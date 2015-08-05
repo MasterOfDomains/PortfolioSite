@@ -7,9 +7,42 @@ namespace PortfolioSite.Helpers
 {
     public class SelectListHelper
     {
+        private class SizeEqCompare : IEqualityComparer<Size>
+        {
+            public bool Equals(Size x, Size y)
+            {
+                return x.SizeID == y.SizeID;
+            }
+
+            public int GetHashCode(Size size)
+            {
+                return size.SizeID;
+            }
+        }
+
+        public static IEnumerable<SelectListItem> GetSizeList(CategorySizeType sizeType, IEnumerable<Size> exclude)
+        {
+            ClothingDataEntities db = new ClothingDataEntities();
+
+            IEnumerable<Size> sizes = db.Sizes.Where(s => s.SizeTypeID == sizeType.SizeTypeID)
+                .OrderBy(s => s.DisplayOrder);
+
+            if (exclude != null)
+            {
+                SizeEqCompare sizeEqCompare = new SizeEqCompare();
+                sizes = sizes.Except(exclude, sizeEqCompare);
+            }
+
+            List<SelectListItem> sizeSelectItems = new List<SelectListItem>();
+            foreach (Size size in sizes)
+                sizeSelectItems.Add(new SelectListItem { Text = size.Value, Value = size.SizeID.ToString() });
+
+            return sizeSelectItems;
+        }
+
         private static IEnumerable<SelectListItem> CategoryNamesList(Item item, int? categoryNameId, bool includeEmpty)
         {
-            PortfolioDataEntities db = new PortfolioDataEntities();
+            ClothingDataEntities db = new ClothingDataEntities();
             IEnumerable<CategoryName> categoryNames = db.Items.Select(i => i.Category.CategoryName).Distinct();
             if (item != null)
                 categoryNameId = item.Category.CategoryNameID;
@@ -40,7 +73,7 @@ namespace PortfolioSite.Helpers
 
         public static IEnumerable<SelectListItem> GetAgeGroupList(int? selectedAgeGroupId, bool includeEmpty)
         {
-            PortfolioDataEntities db = new PortfolioDataEntities();
+            ClothingDataEntities db = new ClothingDataEntities();
             IEnumerable<AgeGroup> ageGroups = db.Categories.Select(a => a.AgeGroup).Distinct();
             List<SelectListItem> ageGroupSelectItems = new List<SelectListItem>();
 
@@ -66,7 +99,7 @@ namespace PortfolioSite.Helpers
 
         public static IEnumerable<SelectListItem> GetCategoryList(Category selectedCategory, bool includeEmpty)
         {
-            PortfolioDataEntities db = new PortfolioDataEntities();
+            ClothingDataEntities db = new ClothingDataEntities();
             IEnumerable<Category> categories = db.Categories.Where(c => true);
             int? selectedCategoryId = null;
             if (selectedCategory != null)

@@ -22,6 +22,7 @@ namespace PortfolioSite.Models
         public int SizeID { get; set; }
         public string Value { get; set; }
         public int SizeTypeID { get; set; }
+        public Nullable<int> DisplayOrder { get; set; }
     
         public virtual SizeType SizeType { get; set; }
         public virtual ICollection<Stock> Stocks { get; set; }

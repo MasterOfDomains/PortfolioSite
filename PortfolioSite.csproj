@@ -16,7 +16,7 @@
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
-    <IISExpressSSLPort>44303</IISExpressSSLPort>
+    <IISExpressSSLPort>44304</IISExpressSSLPort>
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
@@ -173,92 +173,116 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ShoppingCartController.cs" />
+    <Compile Include="Controllers\InventoryController.cs" />
     <Compile Include="Controllers\StoreController.cs" />
     <Compile Include="DataContexts\IdentityDataEntities.cs" />
-    <Compile Include="DataContexts\IdentityMigrations\201507080439537_InitialCreate.cs" />
+    <Compile Include="DataContexts\IdentityMigrations\201507080439537_InitialCreate.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="DataContexts\IdentityMigrations\201507080439537_InitialCreate.Designer.cs">
       <DependentUpon>201507080439537_InitialCreate.cs</DependentUpon>
     </Compile>
-    <Compile Include="DataContexts\IdentityMigrations\Configuration.cs" />
+    <Compile Include="DataContexts\IdentityMigrations\201508040536469_Update.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DataContexts\IdentityMigrations\201508040536469_Update.Designer.cs">
+      <DependentUpon>201508040536469_Update.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataContexts\IdentityMigrations\Configuration.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="DataContexts\WebStoreDataEntities.cs" />
-    <Compile Include="DataContexts\WebStoreMigrations\201507052038425_InitialCreate.cs" />
+    <Compile Include="DataContexts\WebStoreMigrations\201507052038425_InitialCreate.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="DataContexts\WebStoreMigrations\201507052038425_InitialCreate.Designer.cs">
       <DependentUpon>201507052038425_InitialCreate.cs</DependentUpon>
     </Compile>
-    <Compile Include="DataContexts\WebStoreMigrations\201507090953543_InventoryManagement.cs" />
+    <Compile Include="DataContexts\WebStoreMigrations\201507090953543_InventoryManagement.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="DataContexts\WebStoreMigrations\201507090953543_InventoryManagement.Designer.cs">
       <DependentUpon>201507090953543_InventoryManagement.cs</DependentUpon>
     </Compile>
-    <Compile Include="DataContexts\WebStoreMigrations\201507141019457_AddRecordId.cs" />
+    <Compile Include="DataContexts\WebStoreMigrations\201507141019457_AddRecordId.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="DataContexts\WebStoreMigrations\201507141019457_AddRecordId.Designer.cs">
       <DependentUpon>201507141019457_AddRecordId.cs</DependentUpon>
     </Compile>
-    <Compile Include="DataContexts\WebStoreMigrations\Configuration.cs" />
+    <Compile Include="DataContexts\WebStoreMigrations\Configuration.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Helpers\ImagePath.cs" />
-    <Compile Include="Helpers\ParamHelper.cs" />
+    <Compile Include="Helpers\DisplayImage.cs" />
     <Compile Include="Helpers\InventoryDetail.cs" />
     <Compile Include="Helpers\InventoryDetailGenerator.cs" />
+    <Compile Include="Helpers\ParamHelper.cs" />
     <Compile Include="Helpers\PersonTypeHelper.cs" />
     <Compile Include="Helpers\SelectListHelper.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\AgeGroup.cs">
-      <DependentUpon>PortfolioDataModel.tt</DependentUpon>
+      <DependentUpon>ClothingDataEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Cart.cs" />
-    <Compile Include="Models\InventoryManager.cs" />
-    <Compile Include="Models\Order.cs" />
-    <Compile Include="Models\OrderDetail.cs" />
     <Compile Include="Models\Category.cs">
-      <DependentUpon>PortfolioDataModel.tt</DependentUpon>
+      <DependentUpon>ClothingDataEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\CategoryName.cs">
-      <DependentUpon>PortfolioDataModel.tt</DependentUpon>
+      <DependentUpon>ClothingDataEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\CategorySizeType.cs">
-      <DependentUpon>PortfolioDataModel.tt</DependentUpon>
+      <DependentUpon>ClothingDataEntities.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\ClothingDataEntities.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ClothingDataEntities.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ClothingDataEntities.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ClothingDataEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ClothingDataEntities.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ClothingDataEntities.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Debug.cs" />
     <Compile Include="Models\Inventory.cs">
-      <DependentUpon>PortfolioDataModel.tt</DependentUpon>
+      <DependentUpon>ClothingDataEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\InventoryManager.cs" />
     <Compile Include="Models\Item.cs">
-      <DependentUpon>PortfolioDataModel.tt</DependentUpon>
+      <DependentUpon>ClothingDataEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Order.cs" />
+    <Compile Include="Models\OrderDetail.cs" />
+    <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
-    <Compile Include="Models\PortfolioDataModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>PortfolioDataModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\PortfolioDataModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>PortfolioDataModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\PortfolioDataModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>PortfolioDataModel.edmx</DependentUpon>
-    </Compile>
     <Compile Include="Models\ShoppingCart.cs" />
+    <Compile Include="Models\InventoryItem.cs" />
     <Compile Include="Models\Size.cs">
-      <DependentUpon>PortfolioDataModel.tt</DependentUpon>
+      <DependentUpon>ClothingDataEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\SizeType.cs">
-      <DependentUpon>PortfolioDataModel.tt</DependentUpon>
+      <DependentUpon>ClothingDataEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Stock.cs">
-      <DependentUpon>PortfolioDataModel.tt</DependentUpon>
+      <DependentUpon>ClothingDataEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="ViewModels\CartDetail.cs" />
-    <Compile Include="ViewModels\DetailsAndSizesViewModel.cs" />
+    <Compile Include="ViewModels\DetailsAndSizesViewModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="ViewModels\ShoppingCartUpdateViewModel.cs" />
     <Compile Include="ViewModels\ShoppingCartViewModel.cs" />
+    <Compile Include="ViewModels\InventoryViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
@@ -271,24 +295,24 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <EntityDeploy Include="Models\PortfolioDataModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>PortfolioDataModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\PortfolioDataModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>PortfolioDataModel.edmx</DependentUpon>
-      <LastGenOutput>PortfolioDataModel.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\PortfolioDataModel.edmx.diagram">
-      <DependentUpon>PortfolioDataModel.edmx</DependentUpon>
-    </Content>
-    <Content Include="Models\PortfolioDataModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>PortfolioDataModel.edmx</DependentUpon>
-      <LastGenOutput>PortfolioDataModel.cs</LastGenOutput>
-    </Content>
     <Content Include="Content\ImageEditor.zip" />
+    <EntityDeploy Include="Models\ClothingDataEntities.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ClothingDataEntities.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\ClothingDataEntities.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ClothingDataEntities.edmx</DependentUpon>
+      <LastGenOutput>ClothingDataEntities.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\ClothingDataEntities.edmx.diagram">
+      <DependentUpon>ClothingDataEntities.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\ClothingDataEntities.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ClothingDataEntities.edmx</DependentUpon>
+      <LastGenOutput>ClothingDataEntities.cs</LastGenOutput>
+    </Content>
     <None Include="Properties\PublishProfiles\JosephRogersPortfolio.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\imageupload.js" />
@@ -360,10 +384,16 @@
     <Content Include="Views\ShoppingCart\_CartNav.cshtml" />
     <Content Include="Views\Checkout\Finalize.cshtml" />
     <Content Include="Views\Home\ImageEditor.cshtml" />
+    <Content Include="Views\Inventory\Edit.cshtml" />
+    <Content Include="Views\Inventory\fdsaf.cshtml" />
+    <Content Include="Views\Account\RoleIndex.cshtml" />
+    <Content Include="Views\Account\RoleAddToUser.cshtml" />
+    <Content Include="Views\Account\RoleCreate.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\Img\" />
+    <Folder Include="obj\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -378,6 +408,9 @@
   <ItemGroup>
     <EmbeddedResource Include="DataContexts\IdentityMigrations\201507080439537_InitialCreate.resx">
       <DependentUpon>201507080439537_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataContexts\IdentityMigrations\201508040536469_Update.resx">
+      <DependentUpon>201508040536469_Update.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DataContexts\WebStoreMigrations\201507052038425_InitialCreate.resx">
       <DependentUpon>201507052038425_InitialCreate.cs</DependentUpon>

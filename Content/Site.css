@@ -22,6 +22,9 @@ select,
 textarea {
     max-width: 280px;
 }
+
+/* Paging */
+
 div.pagination-container-centerer {
     text-align: center;
 }
@@ -35,6 +38,13 @@ div.pagination-container {
 
 div.pagenumber {
     text-align: center;
+}
+
+/* General */
+
+div.brief-form {
+    margin-top: 30px;
+    margin-bottom: 30px;
 }
 
 div.video {
@@ -74,7 +84,7 @@ div.feature-holder {
 
 /* Store */
 
-div.filter-control-panel {
+div.control-panel {
     margin: auto;
     margin-bottom: 30px;
     margin-top: 30px;
@@ -84,6 +94,13 @@ div.filter-control-panel {
     border-style: ridge;
     border-width: 5px;
     padding: 10px;
+}
+
+div.control-panel-caption {
+    text-align: center;
+    font-size: large;
+    padding-left: 5px; 
+    padding-top: 2px; 
 }
 
 div.filter-panel-section {
